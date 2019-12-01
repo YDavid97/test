@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+	<div id="vue_det">
+		<h1>{{details()}}</h1>
+		<ul>
+			<li v-for="item in list">{{item}}</li>
+		</ul>
+		<p v-if="money > 15000">阿里巴巴-望京</p>
+		<p v-if="money < 15000">阿里巴巴-杭州</p>
+		
+		<img v-bind:src="url" >
+	</div>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#vue_det',
+			data: {
+				url: "../mytest/src/assets/logo.png",
+				alexa: "10000",
+				list:["北京","上海","天津"],
+				money:10000
+			},
+			methods: {
+				details: function() {
+					return  this.site + " - 学的不仅是技术，更是梦想！";
+				}
+			}
+		})
+	</script>
+</body>
+</html>

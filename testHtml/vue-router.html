@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://unpkg.com/vue/dist/vue.js"></script>
+		<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+		<style type="text/css">
+			#show {
+				background: #42B983;
+				padding: 20% 20%;
+				margin-top: 10px;
+				font-size: 30px;
+			}
+			.btn {
+				background:  #42B983;
+				color: white;
+				padding: 5px 10px;
+				border-radius: 10px;
+				text-decoration: none;
+			}
+			.btn:hover{
+				background: greenyellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<router-link class="btn" to="/">勇士</router-link>
+			<router-link class="btn" to="/hr">湖人</router-link>
+			<router-link class="btn" to="/kc">快船</router-link>
+			<router-link class="btn" to="/hj">火箭</router-link>
+			
+			<router-view id="show"></router-view>
+		</div>
+		
+	</body>
+	<script>
+		var Ys = {
+			template:'<div>库里-汤普森</div>'
+		};
+		var Hr = {
+			template:'<div>詹姆斯-浓眉</div>'
+		};
+		var Kc = {
+			template:'<div>泡椒-卡哇伊</div>'
+		};
+		var Hj = {
+			template:'<div>灯泡</div>'
+		};
+		var router = new VueRouter({
+				routes:[
+					{name:'ys',path:'/',component: Ys},
+					{name:'hr',path:'/hr',component:Hr},
+					{name:'kc',path:'/kc',component:Kc},
+					{name:'hj',path:'/hj',component:Hj}
+				]
+		});
+		var vm = new Vue({
+			el: '#app',
+			router
+		})
+	</script>
+</html>

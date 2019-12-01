@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{ name }}<br />
+			<input v-model="name" /><br />
+			<step-counter></step-counter>
+		</div>
+	</body>
+	<script>
+		//在vue实例化之前，注册组件Vue.component(组件名称，组件对象)
+		Vue.component("step-counter",{
+			//组件对象内容
+			//有且只有一个根节点
+			template:`
+				<div>
+					<button @click="cut">-</button>
+					<span>{{ count }}</span>
+					<button @click="add">+</button>
+				</div>
+			`,
+			data: function(){
+				return {
+					count:0
+				}
+			},
+			methods:{
+				cut:function(){
+					//if(this.count>0) this.count--;
+					//this.count > 0 && this.count--;
+					this.count && this.count--;
+				},
+				add:function(){
+					this.count++;
+				}
+			}
+		})
+		var vm = new Vue({
+			el:"#app",
+			data:{
+				name:"张三",
+			}
+		})
+	</script>
+</html>

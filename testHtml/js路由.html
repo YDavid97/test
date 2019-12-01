@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+	</head>
+	<body>
+		<!-- 导航 -->
+		<a href="#tj">天津</a>
+		<a href="#sh">上海</a>
+		<a href="#bj">北京</a>
+		<a href="#cq">重庆</a>
+		<!-- 定义一个容器，用来显示城市内容 -->
+		<div id="container"></div>
+		<!-- 监听hash值变化 -->
+		<script>
+			var func = function(){
+				//可以监听到hash值变化
+				var dom = document.getElementById("container");
+				var path = window.location.hash.substr(1);
+				switch (path){
+					case "bj":
+						dom.innerHTML = "北京欢迎你";
+						break;
+					case "sh":
+						dom.innerHTML = "上海——魔都";
+						break;
+					case "tj":
+						dom.innerHTML = "天津-曲艺·之乡";
+						break;
+					case "cq":
+						dom.innerHTML = "重庆——火锅";
+						break;
+					default:
+						break;
+				}
+			}
+			window.onhashchange = func;
+			func();
+		</script>
+	</body>
+</html>
